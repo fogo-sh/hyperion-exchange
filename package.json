@@ -1,0 +1,23 @@
+{
+  "name": "hyperion-exchange",
+  "version": "1.0.0",
+  "description": "Central currency exchange for currencies implemented by several Discord bots",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saturn-sh/hyperion-exchange.git"
+  },
+  "author": "nint8835",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saturn-sh/hyperion-exchange/issues"
+  },
+  "homepage": "https://github.com/saturn-sh/hyperion-exchange#readme",
+  "devDependencies": {
+    "@types/node": "^12.12.12",
+    "typescript": "^3.7.2"
+  }
+}
