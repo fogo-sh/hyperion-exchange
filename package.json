@@ -20,6 +20,12 @@
   "homepage": "https://github.com/saturn-sh/hyperion-exchange#readme",
   "devDependencies": {
     "@types/node": "^12.12.12",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.7.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1",
     "typedoc": "^0.15.3",
     "typescript": "^3.7.2"
   }
