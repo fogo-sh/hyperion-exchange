@@ -4,7 +4,9 @@
   "description": "Central currency exchange for currencies implemented by several Discord bots",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-docs": "typedoc"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   "homepage": "https://github.com/saturn-sh/hyperion-exchange#readme",
   "devDependencies": {
     "@types/node": "^12.12.12",
+    "typedoc": "^0.15.3",
     "typescript": "^3.7.2"
   }
 }
