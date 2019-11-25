@@ -19,7 +19,7 @@ export interface CurrencyConnector {
   readonly currencyCode: string;
 
   /**
-   * Retrieves the amount of this currency a given user has.
+   * Retrieve the amount of this currency a given user has.
    * @param user The user to retrieve a balance for.
    * @returns The user's balance of this currency.
    */
@@ -37,3 +37,11 @@ export interface CurrencyConnector {
    */
   getTotalInCirculation(): Promise<number>;
 }
+
+/**
+ * Utility type to represent a typical string to object dictionary.
+ * @typeparam T The type of value that is associated with keys for this dictionary.
+ */
+export type Dictionary<T> = {
+  [key: string]: T;
+};

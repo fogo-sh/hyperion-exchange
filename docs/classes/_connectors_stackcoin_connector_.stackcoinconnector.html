@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CurrencyConnector | hyperion-exchange</title>
+	<title>StackCoinConnector | hyperion-exchange</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,38 +56,31 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_types_.html">&quot;types&quot;</a>
+					<a href="../modules/_connectors_stackcoin_connector_.html">&quot;connectors/stackcoin_connector&quot;</a>
 				</li>
 				<li>
-					<a href="_types_.currencyconnector.html">CurrencyConnector</a>
+					<a href="_connectors_stackcoin_connector_.stackcoinconnector.html">StackCoinConnector</a>
 				</li>
 			</ul>
-			<h1>Interface CurrencyConnector</h1>
+			<h1>Class StackCoinConnector</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface representing a connector to interact with a currency API.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CurrencyConnector</span>
+						<span class="target">StackCoinConnector</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
-				<h3>Implemented by</h3>
+				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_connectors_stackcoin_connector_.stackcoinconnector.html" class="tsd-signature-type">StackCoinConnector</a></li>
+					<li><a href="../interfaces/_types_.currencyconnector.html" class="tsd-signature-type">CurrencyConnector</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -97,16 +90,16 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currencyconnector.html#currencycode" class="tsd-kind-icon">currency<wbr>Code</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.currencyconnector.html#currencyname" class="tsd-kind-icon">currency<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_connectors_stackcoin_connector_.stackcoinconnector.html#currencycode" class="tsd-kind-icon">currency<wbr>Code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_connectors_stackcoin_connector_.stackcoinconnector.html#currencyname" class="tsd-kind-icon">currency<wbr>Name</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_types_.currencyconnector.html#addbalance" class="tsd-kind-icon">add<wbr>Balance</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_types_.currencyconnector.html#getbalance" class="tsd-kind-icon">get<wbr>Balance</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_types_.currencyconnector.html#gettotalincirculation" class="tsd-kind-icon">get<wbr>Total<wbr>InCirculation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_connectors_stackcoin_connector_.stackcoinconnector.html#addbalance" class="tsd-kind-icon">add<wbr>Balance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_connectors_stackcoin_connector_.stackcoinconnector.html#getbalance" class="tsd-kind-icon">get<wbr>Balance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_connectors_stackcoin_connector_.stackcoinconnector.html#gettotalincirculation" class="tsd-kind-icon">get<wbr>Total<wbr>InCirculation</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,137 +107,97 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="currencycode" class="tsd-anchor"></a>
 					<h3>currency<wbr>Code</h3>
-					<div class="tsd-signature tsd-kind-icon">currency<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">currency<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;stk&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_types_.currencyconnector.html">CurrencyConnector</a>.<a href="../interfaces/_types_.currencyconnector.html#currencycode">currencyCode</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/types.ts#L19">types.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/stackcoin_connector.ts#L5">connectors/stackcoin_connector.ts:5</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A short code used to refer to the currency this connector interacts with.</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>readonly</dt>
-							<dd></dd>
-						</dl>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="currencyname" class="tsd-anchor"></a>
 					<h3>currency<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">currency<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">currency<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;StackCoin&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_types_.currencyconnector.html">CurrencyConnector</a>.<a href="../interfaces/_types_.currencyconnector.html#currencyname">currencyName</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/types.ts#L14">types.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/stackcoin_connector.ts#L4">connectors/stackcoin_connector.ts:4</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The full, user-friendly display name of the currency this connector interacts with.</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>readonly</dt>
-							<dd></dd>
-						</dl>
-					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addbalance" class="tsd-anchor"></a>
 					<h3>add<wbr>Balance</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Balance<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_types_.currencyconnector.html">CurrencyConnector</a>.<a href="../interfaces/_types_.currencyconnector.html#addbalance">addBalance</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/types.ts#L33">types.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/stackcoin_connector.ts#L10">connectors/stackcoin_connector.ts:10</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Modify the balance of this currency for a given user.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The user to modify the balance for.</p>
-									</div>
 								</li>
 								<li>
 									<h5>amount: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The amount to change the user&#39;s balance by (positive to add, negative to subtract).</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The user&#39;s new balance.</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getbalance" class="tsd-anchor"></a>
 					<h3>get<wbr>Balance</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Balance<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_types_.currencyconnector.html">CurrencyConnector</a>.<a href="../interfaces/_types_.currencyconnector.html#getbalance">getBalance</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/types.ts#L26">types.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/stackcoin_connector.ts#L7">connectors/stackcoin_connector.ts:7</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the amount of this currency a given user has.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The user to retrieve a balance for.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The user&#39;s balance of this currency.</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="gettotalincirculation" class="tsd-anchor"></a>
 					<h3>get<wbr>Total<wbr>InCirculation</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Total<wbr>InCirculation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_types_.currencyconnector.html">CurrencyConnector</a>.<a href="../interfaces/_types_.currencyconnector.html#gettotalincirculation">getTotalInCirculation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/types.ts#L38">types.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/stackcoin_connector.ts#L13">connectors/stackcoin_connector.ts:13</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieves the total amount of this currency in circulation.</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The combined balances of all users of this currency.</p>
 						</li>
 					</ul>
 				</section>
@@ -259,13 +212,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_connectors_connector_manager_.html">&quot;connectors/connector_<wbr>manager&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_connectors_stackcoin_connector_.html">&quot;connectors/stackcoin_<wbr>connector&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_types_.html">&quot;types&quot;</a>
 					</li>
 				</ul>
@@ -274,34 +227,28 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_types_.currencyconnector.html" class="tsd-kind-icon">Currency<wbr>Connector</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_connectors_stackcoin_connector_.stackcoinconnector.html" class="tsd-kind-icon">Stack<wbr>Coin<wbr>Connector</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currencyconnector.html#currencycode" class="tsd-kind-icon">currency<wbr>Code</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_connectors_stackcoin_connector_.stackcoinconnector.html#currencycode" class="tsd-kind-icon">currency<wbr>Code</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_types_.currencyconnector.html#currencyname" class="tsd-kind-icon">currency<wbr>Name</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_connectors_stackcoin_connector_.stackcoinconnector.html#currencyname" class="tsd-kind-icon">currency<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_types_.currencyconnector.html#addbalance" class="tsd-kind-icon">add<wbr>Balance</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_connectors_stackcoin_connector_.stackcoinconnector.html#addbalance" class="tsd-kind-icon">add<wbr>Balance</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_types_.currencyconnector.html#getbalance" class="tsd-kind-icon">get<wbr>Balance</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_connectors_stackcoin_connector_.stackcoinconnector.html#getbalance" class="tsd-kind-icon">get<wbr>Balance</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_types_.currencyconnector.html#gettotalincirculation" class="tsd-kind-icon">get<wbr>Total<wbr>InCirculation</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_connectors_stackcoin_connector_.stackcoinconnector.html#gettotalincirculation" class="tsd-kind-icon">get<wbr>Total<wbr>InCirculation</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_types_.html#dictionary" class="tsd-kind-icon">Dictionary</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_types_.html#discordsnowflake" class="tsd-kind-icon">Discord<wbr>Snowflake</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
