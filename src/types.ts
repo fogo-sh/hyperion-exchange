@@ -45,3 +45,8 @@ export interface CurrencyConnector {
 export type Dictionary<T> = {
   [key: string]: T;
 };
+
+export type UserDetails = {
+  user: DiscordSnowflake;
+  balances: Dictionary<number>;
+}

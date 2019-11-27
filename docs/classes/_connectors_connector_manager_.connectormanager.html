@@ -87,10 +87,16 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_connectors_connector_manager_.connectormanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_connectors_connector_manager_.connectormanager.html#connectors" class="tsd-kind-icon">connectors</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_connectors_connector_manager_.connectormanager.html#connectors" class="tsd-kind-icon">connectors</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_connectors_connector_manager_.connectormanager.html#getuser" class="tsd-kind-icon">get<wbr>User</a></li>
 							</ul>
 						</section>
 					</div>
@@ -108,7 +114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/connector_manager.ts#L4">connectors/connector_manager.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/59a3075/src/connectors/connector_manager.ts#L10">connectors/connector_manager.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_connectors_connector_manager_.connectormanager.html" class="tsd-signature-type">ConnectorManager</a></h4>
@@ -116,17 +122,43 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="connectors" class="tsd-anchor"></a>
-					<h3>connectors</h3>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> connectors</h3>
 					<div class="tsd-signature tsd-kind-icon">connectors<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#dictionary" class="tsd-signature-type">Dictionary</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_.currencyconnector.html" class="tsd-signature-type">CurrencyConnector</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/c532354/src/connectors/connector_manager.ts#L4">connectors/connector_manager.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/59a3075/src/connectors/connector_manager.ts#L10">connectors/connector_manager.ts:10</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getuser" class="tsd-anchor"></a>
+					<h3>get<wbr>User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>User<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#userdetails" class="tsd-signature-type">UserDetails</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/59a3075/src/connectors/connector_manager.ts#L20">connectors/connector_manager.ts:20</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>user: <a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#userdetails" class="tsd-signature-type">UserDetails</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -160,8 +192,11 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_connectors_connector_manager_.connectormanager.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_connectors_connector_manager_.connectormanager.html#connectors" class="tsd-kind-icon">connectors</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_connectors_connector_manager_.connectormanager.html#getuser" class="tsd-kind-icon">get<wbr>User</a>
 							</li>
 						</ul>
 					</li>

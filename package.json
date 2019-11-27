@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-docs": "typedoc"
+    "build-docs": "typedoc",
+    "start": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/saturn-sh/hyperion-exchange#readme",
   "devDependencies": {
     "@types/node": "^12.12.12",
+    "@types/request-promise-native": "^1.0.17",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "eslint": "^6.7.0",
@@ -29,5 +31,11 @@
     "typedoc": "^0.15.3",
     "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.2",
+    "express": "^4.17.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.8"
   }
 }
