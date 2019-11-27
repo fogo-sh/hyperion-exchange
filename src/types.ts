@@ -46,6 +46,9 @@ export type Dictionary<T> = {
   [key: string]: T;
 };
 
+/**
+ * Represents a given user's details.
+ */
 export type UserDetails = {
   user: DiscordSnowflake;
   balances: Dictionary<number>;

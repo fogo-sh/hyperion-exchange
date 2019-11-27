@@ -6,9 +6,18 @@ import {
 } from '../types';
 import StackCoinConnector from './stackcoin_connector';
 
+/**
+ * Helper class for interacting with each currency's respective [[CurrencyConnector]].
+ */
 export default class ConnectorManager {
+  /**
+   * Mapping of currency shortcodes to their respective connectors.
+   */
   private connectors: Dictionary<CurrencyConnector> = {};
 
+  /**
+   * Instantiates a new ConnectorManager.
+   */
   constructor() {
     const connectorObjs: Array<CurrencyConnector> = [new StackCoinConnector()];
 
@@ -17,6 +26,11 @@ export default class ConnectorManager {
     }
   }
 
+  /**
+   * Retrieves details for a given user.
+   * @param user The user to get details for.
+   * @returns The user's details and balances.
+   */
   async getUser(user: DiscordSnowflake): Promise<UserDetails> {
     const balances: Dictionary<number> = {};
     const balancePromises: Array<Promise<[string, number]>> = [];
@@ -29,7 +43,7 @@ export default class ConnectorManager {
         })(),
       );
     }
-    
+
     const entries = await Promise.all(balancePromises);
     for (const [code, balance] of entries) {
       balances[code] = balance;
