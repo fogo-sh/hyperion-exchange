@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  discordauth:
+  hyperion-exchange:
     image: nint8835/hyperion-exchange
     restart: always
     networks:
