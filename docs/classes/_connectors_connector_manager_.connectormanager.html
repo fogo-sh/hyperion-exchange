@@ -103,6 +103,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_connectors_connector_manager_.connectormanager.html#getbalanceforuser" class="tsd-kind-icon">get<wbr>Balance<wbr>For<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_connectors_connector_manager_.connectormanager.html#getuser" class="tsd-kind-icon">get<wbr>User</a></li>
 							</ul>
 						</section>
@@ -121,7 +122,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/2b52664/src/connectors/connector_manager.ts#L16">connectors/connector_manager.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/connectors/connector_manager.ts#L18">connectors/connector_manager.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -142,7 +143,7 @@
 					<div class="tsd-signature tsd-kind-icon">connectors<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#dictionary" class="tsd-signature-type">Dictionary</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_.currencyconnector.html" class="tsd-signature-type">CurrencyConnector</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/2b52664/src/connectors/connector_manager.ts#L16">connectors/connector_manager.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/connectors/connector_manager.ts#L18">connectors/connector_manager.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -155,6 +156,44 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbalanceforuser" class="tsd-anchor"></a>
+					<h3>get<wbr>Balance<wbr>For<wbr>User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Balance<wbr>For<wbr>User<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a>, shortcode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#balancedetails" class="tsd-signature-type">BalanceDetails</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_types_.html#errordetails" class="tsd-signature-type">ErrorDetails</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/connectors/connector_manager.ts#L62">connectors/connector_manager.ts:62</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves balance of a certain currency for a user.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>user: <a href="../modules/_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The user to get balance for.</p>
+									</div>
+								</li>
+								<li>
+									<h5>shortcode: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The shortcode of the currency to get balance of.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#balancedetails" class="tsd-signature-type">BalanceDetails</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_types_.html#errordetails" class="tsd-signature-type">ErrorDetails</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The user&#39;s balance, or an error response if we are unable to retrieve it.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getuser" class="tsd-anchor"></a>
 					<h3>get<wbr>User</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -164,7 +203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/2b52664/src/connectors/connector_manager.ts#L34">connectors/connector_manager.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/connectors/connector_manager.ts#L36">connectors/connector_manager.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,6 +259,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_connectors_connector_manager_.connectormanager.html#connectors" class="tsd-kind-icon">connectors</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_connectors_connector_manager_.connectormanager.html#getbalanceforuser" class="tsd-kind-icon">get<wbr>Balance<wbr>For<wbr>User</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_connectors_connector_manager_.connectormanager.html#getuser" class="tsd-kind-icon">get<wbr>User</a>

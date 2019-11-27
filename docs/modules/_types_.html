@@ -79,9 +79,17 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#balancedetails" class="tsd-kind-icon">Balance<wbr>Details</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_types_.html#dictionary" class="tsd-kind-icon">Dictionary</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#discordsnowflake" class="tsd-kind-icon">Discord<wbr>Snowflake</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#errordetails" class="tsd-kind-icon">Error<wbr>Details</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#userdetails" class="tsd-kind-icon">User<wbr>Details</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_types_.html#iserrordetail" class="tsd-kind-icon">is<wbr>Error<wbr>Detail</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,13 +97,39 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="balancedetails" class="tsd-anchor"></a>
+					<h3>Balance<wbr>Details</h3>
+					<div class="tsd-signature tsd-kind-icon">Balance<wbr>Details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L60">types.ts:60</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Represents a response for a user&#39;s balance for a given currency.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>balance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>user<span class="tsd-signature-symbol">: </span><a href="_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="dictionary" class="tsd-anchor"></a>
 					<h3>Dictionary</h3>
 					<div class="tsd-signature tsd-kind-icon">Dictionary&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/2b52664/src/types.ts#L45">types.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L45">types.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -129,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">Discord<wbr>Snowflake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/2b52664/src/types.ts#L4">types.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L4">types.ts:4</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -139,12 +173,38 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="errordetails" class="tsd-anchor"></a>
+					<h3>Error<wbr>Details</h3>
+					<div class="tsd-signature tsd-kind-icon">Error<wbr>Details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L68">types.ts:68</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Represents an error response for a given API request.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>status<wbr>Code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="userdetails" class="tsd-anchor"></a>
 					<h3>User<wbr>Details</h3>
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/2b52664/src/types.ts#L52">types.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L52">types.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -163,6 +223,41 @@
 							</li>
 						</ul>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="iserrordetail" class="tsd-anchor"></a>
+					<h3>is<wbr>Error<wbr>Detail</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Error<wbr>Detail<span class="tsd-signature-symbol">(</span>details<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">details</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">ErrorDetails</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L78">types.ts:78</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type guard for determining if a given object is an <a href="_types_.html#errordetails">ErrorDetails</a> instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>details: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The object to check.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">details</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">ErrorDetails</span></h4>
+							<p>Whether or not the object is an instance of <a href="_types_.html#errordetails">ErrorDetails</a>.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -191,6 +286,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_types_.currencyconnector.html" class="tsd-kind-icon">Currency<wbr>Connector</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="_types_.html#balancedetails" class="tsd-kind-icon">Balance<wbr>Details</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_types_.html#dictionary" class="tsd-kind-icon">Dictionary</a>
 					</li>
@@ -198,7 +296,13 @@
 						<a href="_types_.html#discordsnowflake" class="tsd-kind-icon">Discord<wbr>Snowflake</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="_types_.html#errordetails" class="tsd-kind-icon">Error<wbr>Details</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="_types_.html#userdetails" class="tsd-kind-icon">User<wbr>Details</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_types_.html#iserrordetail" class="tsd-kind-icon">is<wbr>Error<wbr>Detail</a>
 					</li>
 				</ul>
 			</nav>

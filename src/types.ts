@@ -52,4 +52,29 @@ export type Dictionary<T> = {
 export type UserDetails = {
   user: DiscordSnowflake;
   balances: Dictionary<number>;
+};
+
+/**
+ * Represents a response for a user's balance for a given currency.
+ */
+export type BalanceDetails = {
+  user: DiscordSnowflake;
+  balance: number;
+};
+
+/**
+ * Represents an error response for a given API request.
+ */
+export type ErrorDetails = {
+  error: string;
+  statusCode: number;
+};
+
+/**
+ * Type guard for determining if a given object is an [[ErrorDetails]] instance.
+ * @param details The object to check.
+ * @returns Whether or not the object is an instance of [[ErrorDetails]].
+ */
+export function isErrorDetail(details: any): details is ErrorDetails {
+  return 'error' in details;
 }

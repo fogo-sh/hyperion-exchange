@@ -3,6 +3,8 @@ import {
   Dictionary,
   DiscordSnowflake,
   UserDetails,
+  BalanceDetails,
+  ErrorDetails,
 } from '../types';
 import StackCoinConnector from './stackcoin_connector';
 
@@ -49,5 +51,22 @@ export default class ConnectorManager {
       balances[code] = balance;
     }
     return { user, balances };
+  }
+
+  /**
+   * Retrieves balance of a certain currency for a user.
+   * @param user The user to get balance for.
+   * @param shortcode The shortcode of the currency to get balance of.
+   * @returns The user's balance, or an error response if we are unable to retrieve it.
+   */
+  async getBalanceForUser(
+    user: DiscordSnowflake,
+    shortcode: string,
+  ): Promise<BalanceDetails | ErrorDetails> {
+    if (!(shortcode in this.connectors)) {
+      return { error: 'Invalid currency shortcode.', statusCode: 404 };
+    }
+    const balance = await this.connectors[shortcode].getBalance(user);
+    return { user, balance };
   }
 }
