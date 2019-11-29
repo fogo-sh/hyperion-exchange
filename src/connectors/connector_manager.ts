@@ -34,12 +34,12 @@ export default class ConnectorManager {
    * @returns The user's details and balances.
    */
   async getUser(user: DiscordSnowflake): Promise<UserDetails> {
-    const balances: Dictionary<number> = {};
-    const balancePromises: Array<Promise<[string, number]>> = [];
+    const balances: Dictionary<number | null> = {};
+    const balancePromises: Array<Promise<[string, number | null]>> = [];
 
     for (const [code, connector] of Object.entries(this.connectors)) {
       balancePromises.push(
-        (async (): Promise<[string, number]> => {
+        (async (): Promise<[string, number | null]> => {
           const balance = await connector.getBalance(user);
           return [code, balance];
         })(),

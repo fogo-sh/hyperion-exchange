@@ -1,26 +1,43 @@
 import express, { Request, Response } from 'express';
 import ConnectorManager from './connectors/connector_manager';
-import { isErrorDetail } from './types';
+import { isErrorDetail, ValidDetails } from './types';
 
 const server = express();
 const connectorManager = new ConnectorManager();
 
-server.get('/api/user/:user', async (req: Request, resp: Response) => {
-  resp.json(await connectorManager.getUser(req.params.user));
-});
+/**
+ * Wraps a callback function, handling error responses from it.
+ * @param callback The function to wrap.
+ * @returns The wrapped function, suitable for use as an express callback.
+ */
+function wrapApiRoute(
+  callback: (req: Request, resp: Response) => Promise<ValidDetails>,
+): (req: Request, resp: Response) => Promise<undefined> {
+  return async (req: Request, resp: Response): Promise<undefined> => {
+    const responseData = await callback(req, resp);
+    if (isErrorDetail(responseData)) {
+      resp.status(responseData.statusCode);
+    }
+    resp.json(responseData);
+    return;
+  };
+}
+
+server.get(
+  '/api/user/:user',
+  wrapApiRoute(async (req: Request, resp: Response) => {
+    return connectorManager.getUser(req.params.user);
+  }),
+);
 
 server.get(
   '/api/user/:user/:shortcode',
-  async (req: Request, resp: Response) => {
-    const responseDetails = await connectorManager.getBalanceForUser(
+  wrapApiRoute(async (req: Request, resp: Response) => {
+    return connectorManager.getBalanceForUser(
       req.params.user,
       req.params.shortcode,
     );
-    if (isErrorDetail(responseDetails)) {
-      resp.status(responseDetails.statusCode);
-    }
-    resp.json(responseDetails);
-  },
+  }),
 );
 
 server.listen(3000, () => {

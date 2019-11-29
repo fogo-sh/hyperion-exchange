@@ -84,6 +84,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#discordsnowflake" class="tsd-kind-icon">Discord<wbr>Snowflake</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#errordetails" class="tsd-kind-icon">Error<wbr>Details</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#userdetails" class="tsd-kind-icon">User<wbr>Details</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#validdetails" class="tsd-kind-icon">Valid<wbr>Details</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -103,7 +104,7 @@
 					<div class="tsd-signature tsd-kind-icon">Balance<wbr>Details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L60">types.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L60">types.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -115,7 +116,7 @@
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>balance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+								<h5>balance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 							</li>
 							<li class="tsd-parameter">
 								<h5>user<span class="tsd-signature-symbol">: </span><a href="_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
@@ -129,7 +130,7 @@
 					<div class="tsd-signature tsd-kind-icon">Dictionary&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L45">types.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L45">types.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -163,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">Discord<wbr>Snowflake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L4">types.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L4">types.ts:4</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,7 +179,7 @@
 					<div class="tsd-signature tsd-kind-icon">Error<wbr>Details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L68">types.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L70">types.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -204,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L52">types.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L52">types.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -216,13 +217,23 @@
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>balances<span class="tsd-signature-symbol">: </span><a href="_types_.html#dictionary" class="tsd-signature-type">Dictionary</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>balances<span class="tsd-signature-symbol">: </span><a href="_types_.html#dictionary" class="tsd-signature-type">Dictionary</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 							<li class="tsd-parameter">
 								<h5>user<span class="tsd-signature-symbol">: </span><a href="_types_.html#discordsnowflake" class="tsd-signature-type">DiscordSnowflake</a></h5>
 							</li>
 						</ul>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="validdetails" class="tsd-anchor"></a>
+					<h3>Valid<wbr>Details</h3>
+					<div class="tsd-signature tsd-kind-icon">Valid<wbr>Details<span class="tsd-signature-symbol">:</span> <a href="_types_.html#userdetails" class="tsd-signature-type">UserDetails</a><span class="tsd-signature-symbol"> | </span><a href="_types_.html#balancedetails" class="tsd-signature-type">BalanceDetails</a><span class="tsd-signature-symbol"> | </span><a href="_types_.html#errordetails" class="tsd-signature-type">ErrorDetails</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L65">types.ts:65</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -237,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/6b7ca1f/src/types.ts#L78">types.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/saturn-sh/hyperion-exchange/blob/3041911/src/types.ts#L80">types.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,6 +311,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="_types_.html#userdetails" class="tsd-kind-icon">User<wbr>Details</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="_types_.html#validdetails" class="tsd-kind-icon">Valid<wbr>Details</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_types_.html#iserrordetail" class="tsd-kind-icon">is<wbr>Error<wbr>Detail</a>

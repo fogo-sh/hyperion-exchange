@@ -23,7 +23,7 @@ export interface CurrencyConnector {
    * @param user The user to retrieve a balance for.
    * @returns The user's balance of this currency.
    */
-  getBalance(user: DiscordSnowflake): Promise<number>;
+  getBalance(user: DiscordSnowflake): Promise<number | null>;
   /**
    * Modify the balance of this currency for a given user.
    * @param user The user to modify the balance for.
@@ -51,7 +51,7 @@ export type Dictionary<T> = {
  */
 export type UserDetails = {
   user: DiscordSnowflake;
-  balances: Dictionary<number>;
+  balances: Dictionary<number | null>;
 };
 
 /**
@@ -59,8 +59,10 @@ export type UserDetails = {
  */
 export type BalanceDetails = {
   user: DiscordSnowflake;
-  balance: number;
+  balance: number | null;
 };
+
+export type ValidDetails = UserDetails | BalanceDetails | ErrorDetails;
 
 /**
  * Represents an error response for a given API request.

@@ -7,7 +7,7 @@ import { CurrencyConnector, DiscordSnowflake, Dictionary } from '../types';
  */
 type BalanceResponse = {
   id: DiscordSnowflake;
-  bal: string;
+  bal: string | null;
 };
 
 /**
@@ -37,12 +37,14 @@ export default class StackCoinConnector implements CurrencyConnector {
    * @param user The user to retrieve a balance for.
    * @returns The user's balance of this currency.
    */
-  async getBalance(user: DiscordSnowflake): Promise<number> {
+  async getBalance(user: DiscordSnowflake): Promise<number | null> {
     const balanceResponse: BalanceResponse = await request.get({
       uri: `https://stackcoin.world/user/${user}`,
       json: true,
     });
-    return parseInt(balanceResponse.bal, 10);
+    return balanceResponse.bal !== null
+      ? parseInt(balanceResponse.bal, 10)
+      : null;
   }
 
   /**
