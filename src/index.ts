@@ -24,14 +24,14 @@ function wrapApiRoute(
 }
 
 server.get(
-  '/api/user/:user',
+  '/api/users/:user',
   wrapApiRoute(async (req: Request, resp: Response) => {
     return connectorManager.getUser(req.params.user);
   }),
 );
 
 server.get(
-  '/api/user/:user/:shortcode',
+  '/api/users/:user/:shortcode',
   wrapApiRoute(async (req: Request, resp: Response) => {
     return connectorManager.getBalanceForUser(
       req.params.user,
