@@ -65,6 +65,6 @@
   },
   "typedocOptions": {
     "mode": "modules",
-    "out": "docs/"
+    "out": "../docs/"
   }
 }
