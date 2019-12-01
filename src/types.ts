@@ -19,6 +19,12 @@ export interface CurrencyConnector {
   readonly currencyCode: string;
 
   /**
+   * The url of the currency's site.
+   * @readonly
+   */
+  readonly currencySite: string | null;
+
+  /**
    * Retrieve the amount of this currency a given user has.
    * @param user The user to retrieve a balance for.
    * @returns The user's balance of this currency.
@@ -80,3 +86,12 @@ export type ErrorDetails = {
 export function isErrorDetail(details: any): details is ErrorDetails {
   return 'error' in details;
 }
+
+/**
+ * Represents details for a given currency.
+ */
+export type CurrencyDetails = {
+  name: string;
+  shortCode: string;
+  site: string | null;
+};

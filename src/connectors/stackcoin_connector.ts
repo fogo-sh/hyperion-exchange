@@ -31,6 +31,11 @@ export default class StackCoinConnector implements CurrencyConnector {
    * @readonly
    */
   readonly currencyCode = 'stk';
+  /**
+   * The url of the currency's site.
+   * @readonly
+   */
+  readonly currencySite = 'https://stackcoin.world';
 
   /**
    * Retrieve the amount of this currency a given user has.

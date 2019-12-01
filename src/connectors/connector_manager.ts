@@ -5,6 +5,7 @@ import {
   UserDetails,
   BalanceDetails,
   ErrorDetails,
+  CurrencyDetails,
 } from '../types';
 import StackCoinConnector from './stackcoin_connector';
 
@@ -68,5 +69,21 @@ export default class ConnectorManager {
     }
     const balance = await this.connectors[shortcode].getBalance(user);
     return { user, balance };
+  }
+
+  /**
+   * Retrieve a list of all currencies and their associated details.
+   * @returns The details of all currencies with connectors.
+   */
+  getCurrencyList(): Array<CurrencyDetails> {
+    return Object.values(this.connectors).map(
+      (connector): CurrencyDetails => {
+        return {
+          name: connector.currencyName,
+          shortCode: connector.currencyCode,
+          site: connector.currencySite,
+        };
+      },
+    );
   }
 }
