@@ -42,6 +42,8 @@ export default class StackCoinConnector implements CurrencyConnector {
    */
   readonly currencySite = 'https://stackcoin.world';
 
+  readonly tags = ['read-only', 'daily-payouts'];
+
   /**
    * Retrieve the amount of this currency a given user has.
    * @param user The user to retrieve a balance for.

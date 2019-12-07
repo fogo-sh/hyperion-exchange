@@ -24,6 +24,8 @@ export interface CurrencyConnector {
    */
   readonly currencySite: string | null;
 
+  readonly tags: Array<string>;
+
   /**
    * Retrieve the amount of this currency a given user has.
    * @param user The user to retrieve a balance for.
@@ -80,7 +82,10 @@ export type BalanceDetails = {
   balance: number | null;
 };
 
-export type IndividualDetailResponses = UserBalanceDetails | BalanceDetails | CurrencyDetailsResponse;
+export type IndividualDetailResponses =
+  | UserBalanceDetails
+  | BalanceDetails
+  | CurrencyDetailsResponse;
 
 export type ValidDetails =
   | Array<IndividualDetailResponses>
@@ -111,6 +116,7 @@ export type CurrencyDetails = {
   name: string;
   shortCode: string;
   site: string | null;
+  tags: Array<string>;
 };
 
 export type CurrencyDetailsResponse = {

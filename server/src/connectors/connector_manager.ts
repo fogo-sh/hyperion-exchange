@@ -105,6 +105,7 @@ export default class ConnectorManager {
           name: connector.currencyName,
           shortCode: connector.currencyCode,
           site: connector.currencySite,
+          tags: connector.tags,
         };
       },
     );
@@ -116,6 +117,7 @@ export default class ConnectorManager {
       shortCode: connector.currencyCode,
       site: connector.currencySite,
       name: connector.currencyName,
+      tags: connector.tags,
     };
   }
 

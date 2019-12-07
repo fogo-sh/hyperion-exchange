@@ -8,7 +8,6 @@ import {
   TableBody,
   TableSortLabel,
   Grid,
-  Paper,
   Card,
   CardContent,
   Typography,

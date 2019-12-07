@@ -59,10 +59,12 @@ server.get('/api/currencies/', (req: Request, resp: Response) => {
     {
       shortCode: 'aaaa',
       name: 'CoinLab',
+      tags: ['read-write', 'no-payouts'],
     },
     {
       shortCode: ':thonkang:',
       name: "';DROP TABLE currencies; --",
+      tags: [],
     },
   ]);
 });

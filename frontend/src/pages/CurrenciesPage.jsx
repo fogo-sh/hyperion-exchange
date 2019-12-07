@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Link as RouterLink } from "react-router-dom";
 import {
-  GridList,
-  GridListTile,
-  Card,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
   Grid
 } from "@material-ui/core";
 import CurrencyDetailsCard from "../components/CurrencyDetailsCard";
