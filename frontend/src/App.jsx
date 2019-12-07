@@ -9,9 +9,14 @@ import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import { makeStyles, createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  createMuiTheme,
+  ThemeProvider
+} from "@material-ui/core/styles";
 import CurrenciesPage from "./pages/CurrenciesPage";
 import { red } from "@material-ui/core/colors";
+import CurrencyPage from "./pages/CurrencyPage";
 
 const theme = createMuiTheme({
   palette: {
@@ -47,6 +52,9 @@ const App = () => {
         </AppBar>
 
         <Switch>
+          <Route path="/currency/:shortCode">
+            <CurrencyPage />
+          </Route>
           <Route path="/">
             <CurrenciesPage />
           </Route>

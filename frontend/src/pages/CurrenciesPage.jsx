@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
+import { Link as RouterLink } from "react-router-dom";
 import {
   GridList,
   GridListTile,
@@ -56,7 +57,16 @@ const CurrenciesPage = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" href={currency.site}>
+              <Button
+                size="small"
+                component={React.forwardRef((props, ref) => (
+                  <RouterLink
+                    innerRef={ref}
+                    to={`/currency/${currency.shortCode}`}
+                    {...props}
+                  />
+                ))}
+              >
                 Balances
               </Button>
               {currency.site && (

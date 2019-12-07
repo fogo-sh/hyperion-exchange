@@ -42,6 +42,11 @@ export interface CurrencyConnector {
    * @returns The combined balances of all users of this currency.
    */
   getTotalInCirculation(): Promise<number>;
+  /**
+   * Retrieves the balances of all users.
+   * @returns The balances and snowflakes of all users this currency is aware of.
+   */
+  getAllBalances(): Promise<Array<BalanceDetails>>
 }
 
 /**
@@ -68,7 +73,9 @@ export type BalanceDetails = {
   balance: number | null;
 };
 
-export type ValidDetails = UserDetails | BalanceDetails | ErrorDetails;
+export type IndividualDetailResponses = UserDetails | BalanceDetails;
+
+export type ValidDetails = Array<IndividualDetailResponses> | IndividualDetailResponses | ErrorDetails;
 
 /**
  * Represents an error response for a given API request.

@@ -86,4 +86,12 @@ export default class ConnectorManager {
       },
     );
   }
+
+  async getAllBalances(shortcode: string): Promise<Array<BalanceDetails> | ErrorDetails> {
+    if (!(shortcode in this.connectors)) {
+      return { error: 'Invalid currency shortcode.', statusCode: 404 };
+    }
+    const balances = await this.connectors[shortcode].getAllBalances();
+    return balances;
+  }
 }

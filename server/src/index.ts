@@ -40,9 +40,29 @@ server.get(
   }),
 );
 
-server.get('/api/currencies', (req: Request, resp: Response) => {
-  resp.json(connectorManager.getCurrencyList());
+server.get('/api/currencies/:shortcode', wrapApiRoute(async (req: Request, resp: Response) => {
+  return connectorManager.getAllBalances(req.params.shortcode);
+}))
+
+server.get('/api/currencies/', (req: Request, resp: Response) => {
+  resp.json([
+    ...connectorManager.getCurrencyList(),
+    {
+      shortCode: 'help',
+      name: 'Barthacoin',
+    },
+    {
+      shortCode: 'aaaa',
+      name: 'CoinLab',
+    },
+    {
+      shortCode: ':thonkang:',
+      name: '\';DROP TABLE currencies; --'
+    }
+  ]);
 });
+
+
 
 server.listen(3000, () => {
   console.log('Listening on port 3000');
