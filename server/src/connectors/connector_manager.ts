@@ -1,3 +1,4 @@
+import { Client as DiscordClient } from 'discord.js';
 import {
   CurrencyConnector,
   Dictionary,
@@ -5,6 +6,7 @@ import {
   UserDetails,
   BalanceDetails,
   ErrorDetails,
+  UserBalanceDetails,
   CurrencyDetails,
 } from '../types';
 import StackCoinConnector from './stackcoin_connector';
@@ -19,6 +21,11 @@ export default class ConnectorManager {
   private connectors: Dictionary<CurrencyConnector> = {};
 
   /**
+   * Discord client instance used to retrieve user details.
+   */
+  private discordClient: DiscordClient;
+
+  /**
    * Instantiates a new ConnectorManager.
    */
   constructor() {
@@ -27,6 +34,21 @@ export default class ConnectorManager {
     for (const connector of connectorObjs) {
       this.connectors[connector.currencyCode] = connector;
     }
+    this.discordClient = new DiscordClient();
+    this.discordClient.login(process.env.HYPERION_DISCORD_TOKEN);
+  }
+
+  private async getDiscordUserDetails(
+    user: DiscordSnowflake,
+  ): Promise<UserDetails> {
+    const userId = typeof user === 'number' ? user.toString() : user;
+    const userDetails = await this.discordClient.fetchUser(userId);
+    return {
+      username: userDetails.username,
+      discriminator: userDetails.discriminator,
+      profilePicture: userDetails.avatarURL,
+      snowflake: user,
+    };
   }
 
   /**
@@ -34,7 +56,7 @@ export default class ConnectorManager {
    * @param user The user to get details for.
    * @returns The user's details and balances.
    */
-  async getUser(user: DiscordSnowflake): Promise<UserDetails> {
+  async getUser(user: DiscordSnowflake): Promise<UserBalanceDetails> {
     const balances: Dictionary<number | null> = {};
     const balancePromises: Array<Promise<[string, number | null]>> = [];
 
@@ -51,7 +73,7 @@ export default class ConnectorManager {
     for (const [code, balance] of entries) {
       balances[code] = balance;
     }
-    return { user, balances };
+    return { balances, user: await this.getDiscordUserDetails(user) };
   }
 
   /**
@@ -87,11 +109,21 @@ export default class ConnectorManager {
     );
   }
 
-  async getAllBalances(shortcode: string): Promise<Array<BalanceDetails> | ErrorDetails> {
+  async getAllBalances(
+    shortcode: string,
+  ): Promise<Array<BalanceDetails> | ErrorDetails> {
     if (!(shortcode in this.connectors)) {
       return { error: 'Invalid currency shortcode.', statusCode: 404 };
     }
-    const balances = await this.connectors[shortcode].getAllBalances();
-    return balances;
+    const balances = (await this.connectors[shortcode].getAllBalances()).map(
+      async balance => ({
+        ...balance,
+        user:
+          typeof balance.user === 'string'
+            ? await this.getDiscordUserDetails(balance.user)
+            : balance.user,
+      }),
+    );
+    return Promise.all(balances);
   }
 }

@@ -46,7 +46,7 @@ export interface CurrencyConnector {
    * Retrieves the balances of all users.
    * @returns The balances and snowflakes of all users this currency is aware of.
    */
-  getAllBalances(): Promise<Array<BalanceDetails>>
+  getAllBalances(): Promise<Array<BalanceDetails>>;
 }
 
 /**
@@ -57,11 +57,18 @@ export type Dictionary<T> = {
   [key: string]: T;
 };
 
-/**
- * Represents a given user's details.
- */
 export type UserDetails = {
-  user: DiscordSnowflake;
+  snowflake: DiscordSnowflake;
+  username: string;
+  discriminator: string;
+  profilePicture: string;
+};
+
+/**
+ * Represents a given user's balance details.
+ */
+export type UserBalanceDetails = {
+  user: UserDetails;
   balances: Dictionary<number | null>;
 };
 
@@ -69,13 +76,16 @@ export type UserDetails = {
  * Represents a response for a user's balance for a given currency.
  */
 export type BalanceDetails = {
-  user: DiscordSnowflake;
+  user: UserDetails | DiscordSnowflake;
   balance: number | null;
 };
 
-export type IndividualDetailResponses = UserDetails | BalanceDetails;
+export type IndividualDetailResponses = UserBalanceDetails | BalanceDetails;
 
-export type ValidDetails = Array<IndividualDetailResponses> | IndividualDetailResponses | ErrorDetails;
+export type ValidDetails =
+  | Array<IndividualDetailResponses>
+  | IndividualDetailResponses
+  | ErrorDetails;
 
 /**
  * Represents an error response for a given API request.

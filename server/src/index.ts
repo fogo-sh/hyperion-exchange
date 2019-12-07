@@ -1,6 +1,12 @@
 import express, { Request, Response } from 'express';
+import { config as setupDotenv } from 'dotenv';
 import ConnectorManager from './connectors/connector_manager';
 import { isErrorDetail, ValidDetails } from './types';
+import { join } from 'path';
+
+setupDotenv({
+  path: join(__dirname, '..', '..', '.env'),
+});
 
 const server = express();
 const connectorManager = new ConnectorManager();
@@ -40,29 +46,26 @@ server.get(
   }),
 );
 
-server.get('/api/currencies/:shortcode', wrapApiRoute(async (req: Request, resp: Response) => {
-  return connectorManager.getAllBalances(req.params.shortcode);
-}))
+server.get(
+  '/api/currencies/:shortcode',
+  wrapApiRoute(async (req: Request, resp: Response) => {
+    return connectorManager.getAllBalances(req.params.shortcode);
+  }),
+);
 
 server.get('/api/currencies/', (req: Request, resp: Response) => {
   resp.json([
     ...connectorManager.getCurrencyList(),
-    {
-      shortCode: 'help',
-      name: 'Barthacoin',
-    },
     {
       shortCode: 'aaaa',
       name: 'CoinLab',
     },
     {
       shortCode: ':thonkang:',
-      name: '\';DROP TABLE currencies; --'
-    }
+      name: "';DROP TABLE currencies; --",
+    },
   ]);
 });
-
-
 
 server.listen(3000, () => {
   console.log('Listening on port 3000');
