@@ -11,18 +11,13 @@ import {
   Button,
   Grid
 } from "@material-ui/core";
+import CurrencyDetailsCard from "../components/CurrencyDetailsCard";
 
 const useStyles = makeStyles(theme => ({
   page: {
     padding: "1rem"
   },
-  card: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  cardContent: {
-    flex: 1
-  }
+  
 }));
 
 const CurrenciesPage = () => {
@@ -47,35 +42,7 @@ const CurrenciesPage = () => {
     >
       {currencies.map(currency => (
         <Grid item xs={12} sm={6} key={currency.shortCode}>
-          <Card className={classes.card}>
-            <CardContent className={classes.cardContent}>
-              <Typography variant="h5" component="h2">
-                {currency.name}
-              </Typography>
-              <Typography color="textSecondary">
-                {currency.shortCode}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button
-                size="small"
-                component={React.forwardRef((props, ref) => (
-                  <RouterLink
-                    innerRef={ref}
-                    to={`/currency/${currency.shortCode}`}
-                    {...props}
-                  />
-                ))}
-              >
-                Balances
-              </Button>
-              {currency.site && (
-                <Button size="small" href={currency.site}>
-                  Currency Site
-                </Button>
-              )}
-            </CardActions>
-          </Card>
+          <CurrencyDetailsCard currency={currency} />
         </Grid>
       ))}
     </Grid>

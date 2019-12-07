@@ -80,7 +80,7 @@ export type BalanceDetails = {
   balance: number | null;
 };
 
-export type IndividualDetailResponses = UserBalanceDetails | BalanceDetails;
+export type IndividualDetailResponses = UserBalanceDetails | BalanceDetails | CurrencyDetailsResponse;
 
 export type ValidDetails =
   | Array<IndividualDetailResponses>
@@ -111,4 +111,9 @@ export type CurrencyDetails = {
   name: string;
   shortCode: string;
   site: string | null;
+};
+
+export type CurrencyDetailsResponse = {
+  currency: CurrencyDetails;
+  balances: Array<BalanceDetails>;
 };

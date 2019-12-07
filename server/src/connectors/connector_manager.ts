@@ -8,6 +8,7 @@ import {
   ErrorDetails,
   UserBalanceDetails,
   CurrencyDetails,
+  CurrencyDetailsResponse,
 } from '../types';
 import StackCoinConnector from './stackcoin_connector';
 
@@ -109,21 +110,35 @@ export default class ConnectorManager {
     );
   }
 
+  getCurrencyDetails(shortCode: string): CurrencyDetails {
+    const connector = this.connectors[shortCode];
+    return {
+      shortCode: connector.currencyCode,
+      site: connector.currencySite,
+      name: connector.currencyName,
+    };
+  }
+
   async getAllBalances(
     shortcode: string,
-  ): Promise<Array<BalanceDetails> | ErrorDetails> {
+  ): Promise<CurrencyDetailsResponse | ErrorDetails> {
     if (!(shortcode in this.connectors)) {
       return { error: 'Invalid currency shortcode.', statusCode: 404 };
     }
-    const balances = (await this.connectors[shortcode].getAllBalances()).map(
-      async balance => ({
-        ...balance,
-        user:
-          typeof balance.user === 'string'
-            ? await this.getDiscordUserDetails(balance.user)
-            : balance.user,
-      }),
+    const balances = await Promise.all(
+      (await this.connectors[shortcode].getAllBalances()).map(
+        async balance => ({
+          ...balance,
+          user:
+            typeof balance.user === 'string'
+              ? await this.getDiscordUserDetails(balance.user)
+              : balance.user,
+        }),
+      ),
     );
-    return Promise.all(balances);
+    return {
+      balances,
+      currency: this.getCurrencyDetails(shortcode),
+    };
   }
 }
