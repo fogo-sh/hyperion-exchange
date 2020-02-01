@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, static as useStatic } from 'express';
 import { config as setupDotenv } from 'dotenv';
 import ConnectorManager from './connectors/connector_manager';
 import { isErrorDetail, ValidDetails } from './types';
@@ -10,6 +10,8 @@ setupDotenv({
 
 const server = express();
 const connectorManager = new ConnectorManager();
+
+server.use(useStatic(join(__dirname, '..', '..', 'frontend', 'build')))
 
 /**
  * Wraps a callback function, handling error responses from it.
@@ -54,19 +56,7 @@ server.get(
 );
 
 server.get('/api/currencies/', (req: Request, resp: Response) => {
-  resp.json([
-    ...connectorManager.getCurrencyList(),
-    {
-      shortCode: 'aaaa',
-      name: 'CoinLab',
-      tags: ['read-write', 'no-payouts'],
-    },
-    {
-      shortCode: ':thonkang:',
-      name: "';DROP TABLE currencies; --",
-      tags: [],
-    },
-  ]);
+  resp.json(connectorManager.getCurrencyList());
 });
 
 server.listen(3000, () => {

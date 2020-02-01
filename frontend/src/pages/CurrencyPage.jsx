@@ -18,9 +18,9 @@ import CurrencyDetailsCard from "../components/CurrencyDetailsCard";
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    padding: '1rem',
-  },
-}))
+    padding: "1rem"
+  }
+}));
 
 const CurrencyPage = () => {
   const classes = useStyles();
@@ -31,9 +31,7 @@ const CurrencyPage = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(
-        `http://localhost:3000/api/currencies/${shortCode}`
-      );
+      const response = await fetch(`/api/currencies/${shortCode}`);
       const respJson = await response.json();
       setBalances(respJson.balances);
       setDetails(respJson.currency);

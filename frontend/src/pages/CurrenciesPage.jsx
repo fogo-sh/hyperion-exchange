@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
-import {
-  Grid
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import CurrencyDetailsCard from "../components/CurrencyDetailsCard";
 
 const useStyles = makeStyles(theme => ({
   page: {
     padding: "1rem"
-  },
-  
+  }
 }));
 
 const CurrenciesPage = () => {
@@ -18,7 +15,7 @@ const CurrenciesPage = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("http://localhost:3000/api/currencies");
+      const response = await fetch("/api/currencies");
       const respJson = await response.json();
       setCurrencies(respJson);
     })();
