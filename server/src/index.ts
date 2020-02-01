@@ -1,9 +1,17 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, static as useStatic } from 'express';
+import { config as setupDotenv } from 'dotenv';
 import ConnectorManager from './connectors/connector_manager';
 import { isErrorDetail, ValidDetails } from './types';
+import { join } from 'path';
+
+setupDotenv({
+  path: join(__dirname, '..', '..', '.env'),
+});
 
 const server = express();
 const connectorManager = new ConnectorManager();
+
+server.use(useStatic(join(__dirname, '..', '..', 'frontend', 'build')))
 
 /**
  * Wraps a callback function, handling error responses from it.
@@ -40,7 +48,14 @@ server.get(
   }),
 );
 
-server.get('/api/currencies', (req: Request, resp: Response) => {
+server.get(
+  '/api/currencies/:shortcode',
+  wrapApiRoute(async (req: Request, resp: Response) => {
+    return connectorManager.getAllBalances(req.params.shortcode);
+  }),
+);
+
+server.get('/api/currencies/', (req: Request, resp: Response) => {
   resp.json(connectorManager.getCurrencyList());
 });
 

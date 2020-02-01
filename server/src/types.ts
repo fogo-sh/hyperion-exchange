@@ -24,6 +24,8 @@ export interface CurrencyConnector {
    */
   readonly currencySite: string | null;
 
+  readonly tags: Array<string>;
+
   /**
    * Retrieve the amount of this currency a given user has.
    * @param user The user to retrieve a balance for.
@@ -42,6 +44,11 @@ export interface CurrencyConnector {
    * @returns The combined balances of all users of this currency.
    */
   getTotalInCirculation(): Promise<number>;
+  /**
+   * Retrieves the balances of all users.
+   * @returns The balances and snowflakes of all users this currency is aware of.
+   */
+  getAllBalances(): Promise<Array<BalanceDetails>>;
 }
 
 /**
@@ -52,11 +59,18 @@ export type Dictionary<T> = {
   [key: string]: T;
 };
 
-/**
- * Represents a given user's details.
- */
 export type UserDetails = {
-  user: DiscordSnowflake;
+  snowflake: DiscordSnowflake;
+  username: string;
+  discriminator: string;
+  profilePicture: string;
+};
+
+/**
+ * Represents a given user's balance details.
+ */
+export type UserBalanceDetails = {
+  user: UserDetails;
   balances: Dictionary<number | null>;
 };
 
@@ -64,11 +78,19 @@ export type UserDetails = {
  * Represents a response for a user's balance for a given currency.
  */
 export type BalanceDetails = {
-  user: DiscordSnowflake;
+  user: UserDetails | DiscordSnowflake;
   balance: number | null;
 };
 
-export type ValidDetails = UserDetails | BalanceDetails | ErrorDetails;
+export type IndividualDetailResponses =
+  | UserBalanceDetails
+  | BalanceDetails
+  | CurrencyDetailsResponse;
+
+export type ValidDetails =
+  | Array<IndividualDetailResponses>
+  | IndividualDetailResponses
+  | ErrorDetails;
 
 /**
  * Represents an error response for a given API request.
@@ -94,4 +116,10 @@ export type CurrencyDetails = {
   name: string;
   shortCode: string;
   site: string | null;
+  tags: Array<string>;
+};
+
+export type CurrencyDetailsResponse = {
+  currency: CurrencyDetails;
+  balances: Array<BalanceDetails>;
 };

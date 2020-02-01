@@ -1,6 +1,11 @@
 import request from 'request-promise-native';
 
-import { CurrencyConnector, DiscordSnowflake, Dictionary } from '../types';
+import {
+  CurrencyConnector,
+  DiscordSnowflake,
+  Dictionary,
+  BalanceDetails,
+} from '../types';
 
 /**
  * Type representing the API response for requesting an individual user's balance.
@@ -36,6 +41,8 @@ export default class StackCoinConnector implements CurrencyConnector {
    * @readonly
    */
   readonly currencySite = 'https://stackcoin.world';
+
+  readonly tags = ['read-only', 'daily-payouts'];
 
   /**
    * Retrieve the amount of this currency a given user has.
@@ -74,5 +81,20 @@ export default class StackCoinConnector implements CurrencyConnector {
     return Object.values(allBalancesResponse)
       .map((balance: { bal: string }): number => parseInt(balance.bal))
       .reduce((total: number, balance: number) => total + balance);
+  }
+
+  /**
+   * Retrieves the balances of all users.
+   * @returns The balances and snowflakes of all users this currency is aware of.
+   */
+  async getAllBalances(): Promise<Array<BalanceDetails>> {
+    const allBalancesResponse: AllBalancesResponse = await request.get({
+      uri: 'https://stackcoin.world/user/',
+      json: true,
+    });
+    return Object.entries(allBalancesResponse).map(([user, { bal }]) => ({
+      user,
+      balance: bal ? parseInt(bal, 10) : null,
+    }));
   }
 }
