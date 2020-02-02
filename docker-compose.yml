@@ -6,6 +6,8 @@ services:
     restart: always
     networks:
       - web
+    volumes:
+      - "./.env:/app/.env"
     expose:
       - 3000
     labels:
