@@ -11,7 +11,7 @@ setupDotenv({
 const server = express();
 const connectorManager = new ConnectorManager();
 
-server.use(useStatic(join(__dirname, '..', '..', 'frontend', 'build')))
+server.use(useStatic(join(__dirname, '..', '..', 'frontend', 'build')));
 
 /**
  * Wraps a callback function, handling error responses from it.
@@ -57,6 +57,10 @@ server.get(
 
 server.get('/api/currencies/', (req: Request, resp: Response) => {
   resp.json(connectorManager.getCurrencyList());
+});
+
+server.get('*', (req: Request, resp: Response) => {
+  resp.sendFile(join(__dirname, '..', '..', 'frontend', 'build', 'index.html'));
 });
 
 server.listen(3000, () => {
