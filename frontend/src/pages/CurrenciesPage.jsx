@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
 
 const CurrenciesPage = () => {
   const classes = useStyles();
-  const [currencies, setCurrencies] = useState([]);
+  const [currencies, setCurrencies] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -29,11 +29,17 @@ const CurrenciesPage = () => {
       cols={2}
       alignItems="stretch"
     >
-      {currencies.map(currency => (
-        <Grid item xs={12} sm={6} key={currency.shortCode}>
-          <CurrencyDetailsCard currency={currency} />
-        </Grid>
-      ))}
+      {currencies
+        ? currencies.map(currency => (
+            <Grid item xs={12} sm={6} key={currency.shortCode}>
+              <CurrencyDetailsCard currency={currency} />
+            </Grid>
+          ))
+        : [...Array(4).keys()].map(index => (
+            <Grid item xs={12} sm={6} key={index}>
+              <CurrencyDetailsCard currency={null} />
+            </Grid>
+          ))}
     </Grid>
   );
 };

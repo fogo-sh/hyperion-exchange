@@ -13,6 +13,7 @@ import {
   Typography,
   makeStyles
 } from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
 import UserTableCell from "../components/UserTableCell";
 import CurrencyDetailsCard from "../components/CurrencyDetailsCard";
 
@@ -25,8 +26,8 @@ const useStyles = makeStyles(theme => ({
 const CurrencyPage = () => {
   const classes = useStyles();
   const { shortCode } = useParams();
-  const [balances, setBalances] = useState([]);
-  const [details, setDetails] = useState({});
+  const [balances, setBalances] = useState(null);
+  const [details, setDetails] = useState(null);
   const [sortDirection, setSortDirection] = useState("desc");
 
   useEffect(() => {
@@ -70,17 +71,26 @@ const CurrencyPage = () => {
               </TableHead>
               <TableBody>
                 {balances
-                  .sort((a, b) =>
-                    sortDirection === "asc"
-                      ? a.balance - b.balance
-                      : b.balance - a.balance
-                  )
-                  .map(balance => (
-                    <TableRow key={balance.user}>
-                      <UserTableCell {...balance.user} />
-                      <TableCell align="right">{balance.balance}</TableCell>
-                    </TableRow>
-                  ))}
+                  ? balances
+                      .sort((a, b) =>
+                        sortDirection === "asc"
+                          ? a.balance - b.balance
+                          : b.balance - a.balance
+                      )
+                      .map(balance => (
+                        <TableRow key={balance.user}>
+                          <UserTableCell {...balance.user} />
+                          <TableCell align="right">{balance.balance}</TableCell>
+                        </TableRow>
+                      ))
+                  : [...Array(10).keys()].map(index => (
+                      <TableRow key={index}>
+                        <UserTableCell loading={true} />
+                        <TableCell align="right">
+                          <Skeleton variant="text" />
+                        </TableCell>
+                      </TableRow>
+                    ))}
               </TableBody>
             </Table>
           </CardContent>

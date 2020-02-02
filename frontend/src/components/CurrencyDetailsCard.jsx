@@ -11,6 +11,7 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { amber, green } from "@material-ui/core/colors";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -61,11 +62,13 @@ const CurrencyDetailsCard = ({ currency, shouldShowBalances = true }) => {
     <Card className={classes.card}>
       <CardContent className={classes.cardContent}>
         <Typography variant="h5" component="h2">
-          {currency.name}
+          {currency ? currency.name : <Skeleton variant="text" />}
         </Typography>
-        <Typography color="textSecondary">{currency.shortCode}</Typography>
+        <Typography color="textSecondary">
+          {currency ? currency.shortCode : <Skeleton variant="text" />}
+        </Typography>
         <div className={classes.cardTags}>
-          {currency.tags &&
+          {currency && currency.tags &&
             currency.tags.map(tag => (
               <Tooltip title={TAGS[tag].tooltip} arrow>
                 <Chip
@@ -78,7 +81,7 @@ const CurrencyDetailsCard = ({ currency, shouldShowBalances = true }) => {
         </div>
       </CardContent>
       <CardActions>
-        {shouldShowBalances && (
+        {currency && shouldShowBalances && (
           <Button
             size="small"
             component={React.forwardRef((props, ref) => (
@@ -92,7 +95,10 @@ const CurrencyDetailsCard = ({ currency, shouldShowBalances = true }) => {
             Balances
           </Button>
         )}
-        {currency.site && (
+        {!currency && (
+          <Button size="small"><Skeleton variant="text" width={120}/></Button>
+        )}
+        {currency && currency.site && (
           <Button size="small" href={currency.site}>
             Currency Site
           </Button>
