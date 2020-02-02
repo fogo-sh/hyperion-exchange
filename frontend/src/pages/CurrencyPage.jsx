@@ -49,7 +49,6 @@ const CurrencyPage = () => {
             <Typography variant="h5" component="h2">
               Balances
             </Typography>
-
             <Table>
               <TableHead>
                 <TableRow>

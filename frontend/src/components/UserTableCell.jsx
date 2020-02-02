@@ -6,7 +6,8 @@ const useStyles = makeStyles(theme => ({
   tableCell: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    wordWrap: "anywhere"
   },
   profilePicture: {
     marginRight: "1rem"
@@ -23,7 +24,9 @@ const UserTableCell = ({ username, discriminator, profilePicture }) => {
         src={profilePicture}
       />
       <Typography variant="subtitle1">{username}</Typography>
-      <Typography variant="caption" color="textSecondary">#{discriminator}</Typography>
+      <Typography variant="caption" color="textSecondary">
+        #{discriminator}
+      </Typography>
     </TableCell>
   );
 };
