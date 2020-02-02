@@ -1,4 +1,5 @@
 import express, { Request, Response, static as useStatic } from 'express';
+import proxy from 'express-http-proxy';
 import { config as setupDotenv } from 'dotenv';
 import ConnectorManager from './connectors/connector_manager';
 import { isErrorDetail, ValidDetails } from './types';
@@ -10,8 +11,6 @@ setupDotenv({
 
 const server = express();
 const connectorManager = new ConnectorManager();
-
-server.use(useStatic(join(__dirname, '..', '..', 'frontend', 'build')));
 
 /**
  * Wraps a callback function, handling error responses from it.
@@ -59,9 +58,16 @@ server.get('/api/currencies/', (req: Request, resp: Response) => {
   resp.json(connectorManager.getCurrencyList());
 });
 
-server.get('*', (req: Request, resp: Response) => {
-  resp.sendFile(join(__dirname, '..', '..', 'frontend', 'build', 'index.html'));
-});
+if ((process.env.NODE_ENV ?? 'production') === 'development') {
+  server.get('*', proxy(process.env.CRA_URL ?? 'localhost:3001'));
+} else {
+  server.use(useStatic(join(__dirname, '..', '..', 'frontend', 'build')));
+  server.get('*', (req: Request, resp: Response) => {
+    resp.sendFile(
+      join(__dirname, '..', '..', 'frontend', 'build', 'index.html'),
+    );
+  });
+}
 
 server.listen(3000, () => {
   console.log('Listening on port 3000');

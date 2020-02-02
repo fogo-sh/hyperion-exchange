@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/saturn-sh/hyperion-exchange#readme",
   "devDependencies": {
+    "@types/express-http-proxy": "^1.5.12",
     "@types/node": "^12.12.12",
     "@types/request-promise-native": "^1.0.17",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
@@ -37,6 +38,7 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8"
   }
